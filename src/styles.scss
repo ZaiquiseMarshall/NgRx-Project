@@ -1,4 +1,61 @@
-/* You can add global styles to this file, and also import other style files */
-
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,800&display=swap');
+
+  $primary: rgb(2, 248, 84);
+//   $primary: rgb(2, 178, 248);
+  $textshadow: 3px 0px 10px rgba(63, 63, 63, 0.952);
+  $boxshadow: 2px -3px 10px rgba(63, 63, 63, 0.952);
+
+body {
+    font-family: 'Nunito' !important;
+    font-weight: normal !important;
+    font-style: normal !important;
+    margin: 0 !important;
+    font-size: 18px !important;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    h1 {
+        font-size: 3em;
+        font-weight: 700;
+        text-align: center;
+        color: $primary;
+    }
+}
+
+.post {
+   border-radius: 10px;
+   padding: 2% 3%;
+   background-color: rgb(234, 238, 241);
+   margin-top: 20px;
+}
+
+.comments {
+    margin-left: 1%;
+    list-style: none;
+    li {
+        margin-top: 5px;
+        padding: 10px 10px;
+        border: 1px solid darken(rgb(234, 238, 241), 50%);
+        label {
+            font-weight: 700;
+        }
+    }
+}
+
+button {
+    transition: all ease-in 0.3s;
+    border: none;
+    padding: 10px 25px;
+    background-color: $primary;
+    font-weight: 700;
+    color: white;
+    border-radius: 25px 25px;
+    cursor: pointer;
+    &:hover {
+        background-color: darken($primary, 15%);
+    }
+}

@@ -53,7 +53,7 @@ button {
     background-color: $primary;
     font-weight: 700;
     color: white;
-    border-radius: 25px 25px;
+    border-radius: 25px 25px !important;
     cursor: pointer;
     &:hover {
         background-color: darken($primary, 15%);

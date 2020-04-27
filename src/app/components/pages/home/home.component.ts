@@ -8,27 +8,30 @@ import { PostService } from '../../../services/post.service';
 })
 export class HomeComponent implements OnInit {
   posts: any[]; 
-  test: boolean = false;
+  toggle: boolean = false;
 
   constructor(private postService: PostService) { }
 
   ngOnInit(): void {
     this.postService.getPost()
       .subscribe(
-        res => {
-          this.posts = res;
-          console.log(this.posts);
-        }
+        res =>  this.posts = res
       );
   }
 
   getComments(index, id) {
-    this.postService.getComments(id)
+    if(!this.posts[index].comments) {
+      this.postService.getComments(id)
       .subscribe(
         res => {
           this.posts[index].comments = res;
           console.log(this.posts)
         }
       );
+    }
+  }
+
+  trackElement(index: number) {
+    return index
   }
 }

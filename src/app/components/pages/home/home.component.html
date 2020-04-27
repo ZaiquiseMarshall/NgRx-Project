@@ -1,20 +1,22 @@
 <div class="container" *ngIf="posts">
-    <h1>Post</h1>
+    <h1>Home</h1>
 
-    <section class="post" *ngFor="let p of posts; let i = index">
-       <h2>{{p.title | uppercase }}</h2>
-       <p><strong>User {{p.userId}} Posted: </strong> {{p.body }}</p>
-       <p>
-          <button (click)="getComments(i, p.id)">View Comments</button>
-       </p>
-       <div *ngIf="p.comments">
-        <ul class="comments">
-            <li *ngFor="let comment of p.comments">
-                <label>{{comment.email}}</label>
-                <p>{{comment.body}}</p>
-            </li>
-          </ul>
-       </div>
-    </section>
+    <ng-container *ngFor="let p of posts; let i = index">
+        <div class="post" [id]="'post' + i">
+            <h2>{{p.title | uppercase }}</h2>
+            <p><strong>User {{p.userId}} Posted: </strong> {{p.body }}</p>
+            <p>
+               <button [ngClass]="p.toggle ? 'hide': ''" (click)="getComments(i, p.id); p.toggle = !p.toggle">{{p.toggle ? 'Hide Comments' : 'View Comments'}}</button>
+            </p>
+            <div *ngIf="p.comments && p.toggle">
+             <ul class="comments">
+                 <li *ngFor="let comment of p.comments">
+                     <label>{{comment.email}}</label>
+                     <p>{{comment.body}}</p>
+                 </li>
+               </ul>
+            </div>
+        </div>
+    </ng-container>
     <br/>
 </div>

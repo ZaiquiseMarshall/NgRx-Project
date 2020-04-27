@@ -2,8 +2,8 @@
 @import '~bootstrap/scss/bootstrap';
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,800&display=swap');
 
-  $primary: rgb(2, 248, 84);
-//   $primary: rgb(2, 178, 248);
+//   $primary: rgb(2, 248, 84);
+  $primary: rgb(2, 178, 248);
   $textshadow: 3px 0px 10px rgba(63, 63, 63, 0.952);
   $boxshadow: 2px -3px 10px rgba(63, 63, 63, 0.952);
 
@@ -13,6 +13,7 @@ body {
     font-style: normal !important;
     margin: 0 !important;
     font-size: 18px !important;
+    background-color: rgb(36, 36, 36) !important;
 }
 
 .container {
@@ -20,17 +21,25 @@ body {
     margin: 0 auto;
     h1 {
         font-size: 3em;
-        font-weight: 700;
+        font-weight: 700 !important;
         text-align: center;
-        color: $primary;
+        color: white;
     }
 }
 
 .post {
-   border-radius: 10px;
+   transition: all ease-in 200ms;
+   border: 1px solid $primary ;
    padding: 2% 3%;
-   background-color: rgb(234, 238, 241);
-   margin-top: 20px;
+   color: white;
+   &:hover {
+      background-color: lighten(rgb(36, 36, 36), 3%);
+   }
+
+   h2 {
+       color: $primary;
+       font-weight: 700;
+   }
 }
 
 .comments {
@@ -38,8 +47,9 @@ body {
     list-style: none;
     li {
         margin-top: 5px;
-        padding: 10px 10px;
-        border: 1px solid darken(rgb(234, 238, 241), 50%);
+        padding: 10px 20px;
+        border: 1px solid $primary;
+        border-radius: 25px 25px;
         label {
             font-weight: 700;
         }
@@ -47,6 +57,7 @@ body {
 }
 
 button {
+    outline: none !important;
     transition: all ease-in 0.3s;
     border: none;
     padding: 10px 25px;
